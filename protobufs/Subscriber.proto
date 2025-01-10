@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package com.hasup.proto;
+
+option java_package = "com.hasup.proto";
+option java_outer_classname = "SubscriberProto";
+option ruby_package = "Hasup";
+
+enum Status {
+    UNKNOWN = 0;
+    SUBS = 1;    // Abone olma
+    ONLN = 2;    // Online
+    OFFL = 3;    // Offline
+    DEL = 4;     // Abonelik silme
+}
+
+message Subscriber {
+    Status status = 1;
+    int32 id = 2;
+    string name_surname = 3;
+    int64 start_date = 4;     // Unix timestamp
+    int64 last_accessed = 5;  // Unix timestamp
+} 

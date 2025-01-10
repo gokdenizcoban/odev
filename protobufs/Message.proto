@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package com.hasup.proto;
+
+option java_package = "com.hasup.proto";
+option java_outer_classname = "MessageProto";
+option ruby_package = "Hasup";
+
+message Message {
+    enum Response {
+        UNKNOWN = 0;
+        YEP = 1;  // Başarılı
+        NOP = 2;  // Başarısız
+    }
+    
+    string demand = 1;     // STRT, CPCTY vs.
+    Response response = 2; // YEP veya NOP
+    int64 timestamp = 3;
+} 

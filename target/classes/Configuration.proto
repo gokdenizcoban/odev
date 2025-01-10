@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package com.hasup.proto;
+option java_package = "com.hasup.proto";
+option java_outer_classname = "ConfigurationProto";
+option ruby_package = "Hasup";
+
+// Sunucu konfigürasyon mesaj yapısı
+message Configuration {
+    int32 server_id = 1;                // Sunucu ID (1, 2 veya 3)
+    int32 fault_tolerance_level = 2;
+    string method = 3;  // "STRT" for start command
+}
+
+// Konfigürasyon güncelleme yanıtı
+message ConfigurationResponse {
+    bool success = 1;           // İşlem başarı durumu
+    string message = 2;         // Hata/başarı mesajı
+    int64 timestamp = 3;        // İşlem zamanı
+} 

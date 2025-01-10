@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package com.hasup.proto;
+option java_package = "com.hasup.proto";
+option java_outer_classname = "CapacityProto";
+option ruby_package = "Hasup";
+
+// Sunucu kapasite durumu için mesaj yapısı
+message Capacity {
+    int32 server_id = 1;        // Sunucu ID (1, 2 veya 3)
+    int32 server_status = 2;    // Mevcut abone sayısı (list.size())
+    int64 timestamp = 3;        // Unix epoch time
+}
+
+// Kapasite sorgusu için istek mesajı
+message CapacityRequest {
+    int32 server_id = 1;        // Sorgulanacak sunucu ID'si
+}
+
+// Kapasite bilgisi için yanıt mesajı
+message CapacityResponse {
+    repeated Capacity capacities = 1;  // Bir veya birden fazla sunucunun kapasite bilgisi
+} 
